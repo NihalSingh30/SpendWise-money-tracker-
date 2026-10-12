@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3500);
     }
 
-    const passwordToggle = document.querySelector('[data-password-toggle]');
-    const passwordInput = document.querySelector('#password');
-    if (passwordToggle) {
+    document.querySelectorAll('[data-password-toggle]').forEach(function (passwordToggle) {
+        const passwordInput = document.getElementById(passwordToggle.getAttribute('aria-controls'));
+        const fieldName = passwordInput.id === 'password-confirmation' ? 'konfirmasi kata sandi' : 'kata sandi';
         passwordToggle.addEventListener('click', function () {
             const visible = passwordInput.type === 'password';
             passwordInput.type = visible ? 'text' : 'password';
             passwordToggle.textContent = visible ? 'Sembunyikan' : 'Lihat';
             passwordToggle.setAttribute('aria-pressed', String(visible));
-            passwordToggle.setAttribute('aria-label', visible ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi');
+            passwordToggle.setAttribute('aria-label', (visible ? 'Sembunyikan ' : 'Tampilkan ') + fieldName);
         });
-    }
+    });
 
     document.querySelectorAll('[data-demo-link]').forEach(function (button) {
         button.addEventListener('click', function () {
