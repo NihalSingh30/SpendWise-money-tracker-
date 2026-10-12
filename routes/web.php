@@ -13,3 +13,7 @@ Route::get('/dashboard', function () {
 Route::get('/transactions', function () {
     return view('transactions');
 })->name('transactions');
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');

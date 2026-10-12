@@ -31,6 +31,67 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    const profileForm = document.querySelector('[data-profile-form]');
+    if (profileForm) {
+        profileForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            showToast('Perubahan profil belum disimpan di versi contoh.');
+        });
+    }
+
+    const passwordForm = document.querySelector('[data-password-form]');
+    if (passwordForm) {
+        passwordForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const password = passwordForm.querySelector('[name="new_password"]');
+            const confirmation = passwordForm.querySelector('[name="new_password_confirmation"]');
+
+            if (password.value !== confirmation.value) {
+                confirmation.setCustomValidity('Konfirmasi kata sandi belum cocok.');
+                confirmation.reportValidity();
+                confirmation.addEventListener('input', function () {
+                    confirmation.setCustomValidity('');
+                }, { once: true });
+                return;
+            }
+
+            showToast('Kata sandi belum diubah di versi contoh.');
+            passwordForm.reset();
+        });
+    }
+
+    const profilePhoto = document.querySelector('[data-profile-photo]');
+    const profileAvatar = document.querySelector('[data-profile-avatar]');
+    if (profilePhoto && profileAvatar) {
+        let photoPreviewUrl;
+        profilePhoto.addEventListener('change', function () {
+            const file = profilePhoto.files[0];
+            if (!file) {
+                return;
+            }
+            if (!file.type.startsWith('image/')) {
+                profilePhoto.value = '';
+                showToast('Pilih file gambar untuk foto profil.');
+                return;
+            }
+            if (file.size > 5 * 1024 * 1024) {
+                profilePhoto.value = '';
+                showToast('Ukuran foto maksimal 5 MB.');
+                return;
+            }
+
+            if (photoPreviewUrl) {
+                URL.revokeObjectURL(photoPreviewUrl);
+            }
+            photoPreviewUrl = URL.createObjectURL(file);
+            profileAvatar.replaceChildren();
+            const image = document.createElement('img');
+            image.src = photoPreviewUrl;
+            image.alt = 'Pratinjau foto profil';
+            profileAvatar.append(image);
+        });
+    }
+
     const sidebar = document.querySelector('[data-sidebar]');
     const menuButton = document.querySelector('[data-sidebar-open]');
     const backdrop = document.querySelector('.sidebar-backdrop');

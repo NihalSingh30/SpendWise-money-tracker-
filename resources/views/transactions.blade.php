@@ -25,7 +25,7 @@
             </ul>
             <p class="section-label">Akun</p>
             <ul>
-                <li><button type="button" data-demo-link>Profil saya</button></li>
+                <li><a href="{{ route('profile') }}">Profil saya</a></li>
                 <li><button type="button" data-demo-link>Pengaturan</button></li>
             </ul>
         </nav>
@@ -44,7 +44,7 @@
             <nav class="account-nav" aria-label="Akun dan periode">
                 <button type="button" data-demo-link>September 2026</button>
                 <button type="button" data-demo-link>Notifikasi</button>
-                <button type="button" data-demo-link>Raka Aditya</button>
+                <a href="{{ route('profile') }}">Raka Aditya</a>
             </nav>
         </header>
         <main class="dashboard-content" id="main-content" tabindex="-1">
