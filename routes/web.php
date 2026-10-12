@@ -67,3 +67,7 @@ Route::get('/transactions', function () {
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
+
+Route::get('/budget', function () {
+    return view('budget');
+})->name('budget');

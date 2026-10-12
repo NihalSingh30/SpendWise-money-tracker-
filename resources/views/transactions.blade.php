@@ -19,7 +19,7 @@
             <ul>
                 <li><a href="{{ route('dashboard') }}">Ringkasan</a></li>
                 <li><a class="active" href="{{ route('transactions') }}">Transaksi<span class="nav-count">8</span></a></li>
-                <li><a href="#">Budget</a></li>
+                <li><a href="{{ route('budget') }}" aria-current="page">Budget</a></li>
                 <li><a href="#">Analisis</a></li>
                 <li><a href="#">Laporan</a></li>
             </ul>
