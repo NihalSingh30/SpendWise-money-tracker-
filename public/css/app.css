@@ -209,6 +209,26 @@ table .text-button { font-size: 10px; }
 .account-nav a { font-size: 11px; text-decoration: none; }
 .account-nav a:hover { text-decoration: underline; }
 
+/* Budget */
+.budget-overview { margin-bottom: 36px; }
+.budget-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; margin-bottom: 42px; }
+.budget-form-panel, .category-budget-panel { min-width: 0; }
+.budget-form-panel .panel-heading, .category-budget-panel .panel-heading { margin-bottom: 24px; }
+.budget-form { display: flex; flex-direction: column; gap: 18px; }
+.budget-form .primary-button { align-self: flex-start; }
+.budget-list-panel { margin-bottom: 32px; }
+.budget-count { color: #777; font-size: 11px; white-space: nowrap; }
+.budget-table { display: grid; gap: 22px; margin-top: 24px; }
+.budget-row { padding: 18px 0 20px; border-top: 1px solid #e3e3e3; }
+.budget-row:first-child { border-top: 0; padding-top: 0; }
+.budget-row-heading, .budget-row-values { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.budget-row-heading h3 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: normal; }
+.budget-row-heading strong { font-size: 12px; font-weight: normal; }
+.budget-row-values { justify-content: flex-start; flex-wrap: wrap; margin: 10px 0 12px; color: #777; font-size: 11px; }
+.budget-row-values span { min-width: 150px; }
+.budget-row-values b { color: #242424; font-weight: normal; }
+.budget-row progress { height: 6px; }
+
 /* Profil */
 .profile-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(240px, 0.8fr); gap: 24px; align-items: start; }
 .profile-column { display: grid; gap: 28px; min-width: 0; }
@@ -290,12 +310,16 @@ table .text-button { font-size: 10px; }
     .budget-alert a { margin-left: 0; }
     .budget-alert button { margin-left: auto; }
     .dashboard-grid { gap: 30px; }
+    .budget-layout { grid-template-columns: 1fr; gap: 32px; }
     .profile-layout { grid-template-columns: 1fr; }
     .chart-legend { gap: 14px; }
     .chart-week > span { font-size: 9px; }
     .income-bar, .expense-bar { width: 16px; }
     .chart-summary { gap: 22px; }
     .dashboard-footer { padding: 8px 20px 24px; }
+    .budget-layout { gap: 28px; margin-bottom: 32px; }
+    .budget-row-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .budget-row-values span { min-width: 0; }
     .transaction-dialog { padding: 22px; }
     .form-grid { grid-template-columns: 1fr; }
     .toast { right: 16px; bottom: 16px; max-width: calc(100% - 32px); }
