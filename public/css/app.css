@@ -271,6 +271,10 @@ table .text-button { font-size: 10px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .transaction-form .form-note { margin: 0; }
 .dialog-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.transaction-filter {
+    display:flex;
+    gap:8px;
+}
 
 /* Layar kecil */
 @media (max-width: 1100px) {
